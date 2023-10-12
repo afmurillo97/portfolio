@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('birthdate')->nullable();
             $table->string('cv_url')->nullable();
-            $table->string('bio')->nullable();
+            $table->text('bio')->nullable();
             $table->timestamps();
         });
     }

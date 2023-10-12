@@ -13,12 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('experiences', function (Blueprint $table) {
+        Schema::create('jobs', function (Blueprint $table) {
             $table->id();
+            $table->enum('category', ['Video', 'Web Design', 'Logo', 'Graphic Design']);
             $table->string('title');
-            $table->string('description');
-            $table->string('dates');
+            $table->string('subcategory')->nullable();
+            $table->string('logo_url')->nullable();
             $table->string('color_hex');
+            $table->string('project_name');
+            $table->string('languajes');
+            $table->string('client');
+            $table->string('preview');
+            $table->longText('body');
             $table->timestamps();
         });
     }
@@ -30,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('experiences');
+        Schema::dropIfExists('jobs');
     }
 };
